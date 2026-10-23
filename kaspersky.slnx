@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="VulnerabilityTracker.csproj" />
+  <Project Path="VulnerabilityTracker.Tests/VulnerabilityTracker.Tests.csproj" />
+</Solution>

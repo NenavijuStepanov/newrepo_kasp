@@ -1,0 +1,35 @@
+@host = http://localhost:5123
+
+### Добавить уязвимость
+POST {{host}}/api/vulnerabilities
+Content-Type: application/json
+
+{
+  "name": "SQL Injection",
+  "severity": "High"
+}
+
+### Получить уязвимость по ID (подставьте id из ответа выше)
+GET {{host}}/api/vulnerabilities/00000000-0000-0000-0000-000000000000
+
+### Запустить сканирование
+POST {{host}}/api/scans
+Content-Type: application/json
+
+{
+  "repositoryUrl": "https://gitlab.com/user/repo"
+}
+
+### Запустить сканирование, которое завершится ошибкой (в URL есть "fail")
+POST {{host}}/api/scans
+Content-Type: application/json
+
+{
+  "repositoryUrl": "https://gitlab.com/user/fail-repo"
+}
+
+### Статус сканирования (подставьте scanId)
+GET {{host}}/api/scans/00000000-0000-0000-0000-000000000000
+
+### Отменить сканирование (подставьте scanId)
+POST {{host}}/api/scans/00000000-0000-0000-0000-000000000000/cancel
